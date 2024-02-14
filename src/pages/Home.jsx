@@ -1,7 +1,7 @@
 import React from "react";
 
 function Home() {
-  return <div>Home page</div>;
+  return <div className="container xl:max-w-screen-xl">صفحه اصلی</div>;
 }
 
 export default Home;

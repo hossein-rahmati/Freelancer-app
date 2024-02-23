@@ -1,12 +1,10 @@
-function Table({ children }) {
+export default function Table({ children }) {
   return (
-    <div>
-      <table className="bg-secondary-0 overflow-x-auto">{children}</table>
+    <div className="bg-secondary-0 overflow-x-auto">
+      <table>{children}</table>
     </div>
   );
 }
-
-export default Table;
 
 function TableHeader({ children }) {
   return (
@@ -17,11 +15,7 @@ function TableHeader({ children }) {
 }
 
 function TableBody({ children }) {
-  return (
-    <tbody>
-      <tr>{children}</tr>
-    </tbody>
-  );
+  return <tbody>{children}</tbody>;
 }
 
 function TableRow({ children }) {

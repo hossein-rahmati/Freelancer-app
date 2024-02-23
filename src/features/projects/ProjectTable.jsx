@@ -14,15 +14,17 @@ function ProjectTable() {
   return (
     <Table>
       <Table.Header>
-        <th>#</th>
-        <th>عنوان پروژه</th>
-        <th>دسته بندی پروژه</th>
-        <th>بودجه</th>
-        <th>ددلاین</th>
-        <th>تگ ها</th>
-        <th>فریلنسر</th>
-        <th>وضعیت</th>
-        <th>عملیات</th>
+        <Table.Row>
+          <th>#</th>
+          <th>عنوان پروژه</th>
+          <th>دسته بندی پروژه</th>
+          <th>بودجه</th>
+          <th>ددلاین</th>
+          <th>تگ ها</th>
+          <th>فریلنسر</th>
+          <th>وضعیت</th>
+          <th>عملیات</th>
+        </Table.Row>
       </Table.Header>
       <Table.Body>
         {projects.map((project, index) => (

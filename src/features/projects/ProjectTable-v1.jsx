@@ -4,7 +4,7 @@ import Empty from "../../ui/Empty.jsx";
 import truncateText from "../../utils/truncateText.js";
 import toLocalDateShort from "../../utils/toLocalDateShort.js";
 
-function ProjectTable() {
+function ProjectTableV1() {
   const { isLoading, projects } = useOwnerProjects();
 
   if (isLoading) return <Loading />;
@@ -61,4 +61,4 @@ function ProjectTable() {
   );
 }
 
-export default ProjectTable;
+export default ProjectTableV1;

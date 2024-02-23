@@ -4,8 +4,12 @@ import toLocalDateShort from "../../utils/toLocalDateShort";
 import { toPersianNumbersWithComma } from "../../utils/toPersianNumbers.js";
 import { HiOutlineTrash } from "react-icons/hi";
 import { TbPencilMinus } from "react-icons/tb";
+import Modal from "../../ui/Modal.jsx";
+import { useState } from "react";
 
 export default function ProejctRow({ project, index }) {
+  const [isEditOpen, setIsEditOpen] = useState(false);
+
   return (
     <Table.Row>
       <td>{index + 1}</td>
@@ -31,9 +35,16 @@ export default function ProejctRow({ project, index }) {
         )}
       </td>
       <td>
-        <button>
+        <button onClick={() => setIsEditOpen(true)}>
           <TbPencilMinus className="w-5 h-5 text-primary-900" />
         </button>
+        <Modal
+          open={isEditOpen}
+          title="modal title"
+          onClose={() => setIsEditOpen(false)}
+        >
+          this is modal
+        </Modal>
         <button>
           <HiOutlineTrash className="w-5 h-5 text-error" />
         </button>

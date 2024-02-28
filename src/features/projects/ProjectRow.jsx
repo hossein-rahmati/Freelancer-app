@@ -6,9 +6,13 @@ import { HiOutlineTrash } from "react-icons/hi";
 import { TbPencilMinus } from "react-icons/tb";
 import Modal from "../../ui/Modal.jsx";
 import { useState } from "react";
+import ConfirmDelete from "../../ui/ConfirmDelete.jsx";
+import useRemoveProject from "./useRemoveProject.js";
 
-export default function ProejctRow({ project, index }) {
+export default function ProjectRow({ project, index }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
+  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+  const { isDeleting, removeProject } = useRemoveProject();
 
   return (
     <Table.Row>
@@ -35,19 +39,39 @@ export default function ProejctRow({ project, index }) {
         )}
       </td>
       <td>
-        <button onClick={() => setIsEditOpen(true)}>
-          <TbPencilMinus className="w-5 h-5 text-primary-900" />
-        </button>
-        <Modal
-          open={isEditOpen}
-          title="modal title"
-          onClose={() => setIsEditOpen(false)}
-        >
-          this is modal
-        </Modal>
-        <button>
-          <HiOutlineTrash className="w-5 h-5 text-error" />
-        </button>
+        <>
+          <button className="ml-4" onClick={() => setIsEditOpen(true)}>
+            <TbPencilMinus className="w-5 h-5 text-primary-900" />
+          </button>
+          <Modal
+            open={isEditOpen}
+            title={`ویرایش ${project.title}`}
+            onClose={() => setIsEditOpen(false)}
+          >
+            this is modal
+          </Modal>
+        </>
+        <>
+          <button onClick={() => setIsDeleteOpen(true)}>
+            <HiOutlineTrash className="w-5 h-5 text-error" />
+          </button>
+          <Modal
+            open={isDeleteOpen}
+            title={`حذف ${project.title}`}
+            onClose={() => setIsDeleteOpen(false)}
+          >
+            <ConfirmDelete
+              resourceName={project.title}
+              onClose={() => setIsDeleteOpen(false)}
+              onConfirm={() =>
+                removeProject(project._id, {
+                  onSuccess: setIsDeleteOpen(false),
+                })
+              }
+              disabled={false}
+            />
+          </Modal>
+        </>
       </td>
     </Table.Row>
   );

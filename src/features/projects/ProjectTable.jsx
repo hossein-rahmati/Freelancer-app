@@ -3,7 +3,7 @@ import useOwnerProjects from "./useOwnerProjects.js";
 import Loading from "../../ui/Loading.jsx";
 import Empty from "../../ui/Empty.jsx";
 import Table from "../../ui/Table.jsx";
-import ProejctRow from "./ProjectRow.jsx";
+import ProjectRow from "./ProjectRow.jsx";
 
 function ProjectTable() {
   const { isLoading, projects } = useOwnerProjects();
@@ -29,7 +29,7 @@ function ProjectTable() {
       <Table.Body>
         {projects.map((project, index) => (
           <Table.Row key={project._id}>
-            <ProejctRow key={project._id} project={project} index={index} />
+            <ProjectRow key={project._id} project={project} index={index} />
           </Table.Row>
         ))}
       </Table.Body>

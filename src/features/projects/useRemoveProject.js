@@ -4,6 +4,8 @@ import toast from "react-hot-toast";
 
 export default function useRemoveProject() {
   const queryClient = useQueryClient();
+  
+  
 
   const { mutate: removeProject, isPending: isDeleting } = useMutation({
     mutationFn: removeProjectAPI,

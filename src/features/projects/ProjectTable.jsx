@@ -1,4 +1,3 @@
-import React from "react";
 import useOwnerProjects from "./useOwnerProjects.js";
 import Loading from "../../ui/Loading.jsx";
 import Empty from "../../ui/Empty.jsx";
@@ -15,7 +14,7 @@ function ProjectTable() {
     <Table>
       <Table.Header>
         <Table.Row>
-          <th>#</th>
+          <th>#</th >
           <th>عنوان پروژه</th>
           <th>دسته بندی پروژه</th>
           <th>بودجه</th>

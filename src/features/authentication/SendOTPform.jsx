@@ -1,16 +1,12 @@
 import TextField from "../../ui/TextField";
 import Loading from "../../ui/Loading";
 
-function SendOTPform({ onSubmit, phoneNumber, onChange, isSendingOTP }) {
+// eslint-disable-next-line react/prop-types
+function SendOTPform({ onSubmit, isSendingOTP }) {
   return (
     <div>
       <form onSubmit={onSubmit} className="space-y-8">
-        <TextField
-          name="phoneNumber"
-          value={phoneNumber}
-          onChange={onChange}
-          label="شماره موبایل"
-        />
+        <TextField name="phoneNumber" label="شماره موبایل" />
         <div>
           {isSendingOTP ? (
             <Loading />

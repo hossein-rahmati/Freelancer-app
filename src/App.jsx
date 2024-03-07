@@ -6,7 +6,6 @@ import CompleteProfile from "./pages/CompleteProfile";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
 import AppLayout from "./ui/AppLayout";
-import Owner from "./pages/Owner";
 import OwnerDashboard from "./pages/OwnerDashboard";
 import Projects from "./pages/Projects";
 import Project from "./pages/Project";

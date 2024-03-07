@@ -1,7 +1,6 @@
 import { HiOutlineX } from "react-icons/hi";
 import useOutsideClick from "../hooks/useOutsideClick.js";
 
-// eslint-disable-next-line react/prop-types
 function Modal({ open, onClose, title, children }) {
   const ref = useOutsideClick(onClose);
 

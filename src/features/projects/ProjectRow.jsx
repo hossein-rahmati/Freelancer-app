@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Table from "../../ui/Table";
 import truncateText from "../../utils/truncateText";
 import toLocalDateShort from "../../utils/toLocalDateShort";
@@ -12,7 +13,7 @@ import useRemoveProject from "./useRemoveProject.js";
 export default function ProjectRow({ project, index }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
-  const { isDeleting, removeProject } = useRemoveProject();
+  const { removeProject } = useRemoveProject();
 
   return (
     <Table.Row>
@@ -22,7 +23,7 @@ export default function ProjectRow({ project, index }) {
       <td>{toPersianNumbersWithComma(project.budget)}</td>
       <td>{toLocalDateShort(project.deadline)}</td>
       <td>
-        <div className="flex flex-wrap items-center gap-2 max-w-[200px]">
+        <div className="flex flex-wrap items-center gap-2 max-w-[100px]">
           {project.tags.map((tag) => (
             <span className="badge badge--secondary" key={tag}>
               {tag}

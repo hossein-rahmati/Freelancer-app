@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { HiOutlineX } from "react-icons/hi";
 import useOutsideClick from "../hooks/useOutsideClick.js";
 

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 export default function Table({ children }) {
   return (
     <div className="bg-secondary-0 overflow-x-auto">

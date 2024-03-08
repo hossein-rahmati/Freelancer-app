@@ -24,7 +24,7 @@ function Projects() {
             title="ایجاد پروژه جدید"
             onClose={() => setIsNewProjectOpen(false)}
           >
-            <CreateProjectForm />
+            <CreateProjectForm onClose={() => setIsNewProjectOpen(false)} />
           </Modal>
         </>
       </div>

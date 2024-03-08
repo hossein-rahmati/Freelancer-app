@@ -1,6 +1,5 @@
-import React from "react";
-
-function ConfirmDelete({ resourceName, onClose, disabled,onConfirm }) {
+/* eslint-disable react/prop-types */
+function ConfirmDelete({ resourceName, onClose, disabled, onConfirm }) {
   return (
     <div>
       <h2 className="font-bold text-base mb-8">

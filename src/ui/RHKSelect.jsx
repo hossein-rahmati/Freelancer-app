@@ -7,9 +7,9 @@ function RHKSelect({ name, label, register, options, required }) {
       </label>
       <select {...register(name)} id={name} className="textField__input">
         {options.map((opt) => (
-          <options key={opt.value} value={opt.value}>
+          <option key={opt.value} value={opt.value}>
             {opt.label}
-          </options>
+          </option>
         ))}
       </select>
     </div>

@@ -4,6 +4,7 @@ import TextField from "../../ui/TextField.jsx";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import DatePickerField from "../../ui/DatePickerField.jsx";
+import useCategory from "../../hooks/useCategory.js";
 
 const CreateProjectForm = () => {
   const {
@@ -13,6 +14,8 @@ const CreateProjectForm = () => {
   } = useForm();
   const [tags, setTags] = useState([]);
   const [date, setDate] = useState(new Date());
+
+  const { categories } = useCategory();
 
   const onSubmit = (data) => {
     console.log(data);
@@ -68,7 +71,7 @@ const CreateProjectForm = () => {
         name="category"
         required
         register={register}
-        options={[]}
+        options={categories}
       />
       <div>
         <label className="mb-2 block text-secondary-700">تگ</label>

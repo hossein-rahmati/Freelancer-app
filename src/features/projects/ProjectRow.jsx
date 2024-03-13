@@ -10,6 +10,7 @@ import { useState } from "react";
 import ConfirmDelete from "../../ui/ConfirmDelete.jsx";
 import useRemoveProject from "./useRemoveProject.js";
 import CreateProjectForm from "./CreateProjectForm.jsx";
+import ToggleProjectStatus from "./ToggleProjectStatus.jsx";
 
 export default function ProjectRow({ project, index }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -34,11 +35,12 @@ export default function ProjectRow({ project, index }) {
       </td>
       <td>{project.freelancer?.name || "-"}</td>
       <td>
-        {project.status === "OPEN" ? (
-          <span className="badge badge--success">باز</span>
-        ) : (
-          <span className="badge badge--danger">بسته</span>
-        )}
+        <ToggleProjectStatus project={project} />
+        {/*{project.status === "OPEN" ? (*/}
+        {/*  <span className="badge badge--success">باز</span>*/}
+        {/*) : (*/}
+        {/*  <span className="badge badge--danger">بسته</span>*/}
+        {/*)}*/}
       </td>
       <td>
         <>

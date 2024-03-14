@@ -13,23 +13,20 @@ function ProjectTable() {
   return (
     <Table>
       <Table.Header>
-        <Table.Row>
-          <th>#</th >
-          <th>عنوان پروژه</th>
-          <th>دسته بندی پروژه</th>
-          <th>بودجه</th>
-          <th>ددلاین</th>
-          <th>تگ ها</th>
-          <th>فریلنسر</th>
-          <th>وضعیت</th>
-          <th>عملیات</th>
-        </Table.Row>
+        <th>#</th>
+        <th>عنوان پروژه</th>
+        <th>دسته بندی پروژه</th>
+        <th>بودجه</th>
+        <th>ددلاین</th>
+        <th>تگ ها</th>
+        <th>فریلنسر</th>
+        <th>وضعیت</th>
+        <th>عملیات</th>
+        <th>درخواست ها</th>
       </Table.Header>
       <Table.Body>
         {projects.map((project, index) => (
-          <Table.Row key={project._id}>
-            <ProjectRow key={project._id} project={project} index={index} />
-          </Table.Row>
+          <ProjectRow key={project._id} project={project} index={index} />
         ))}
       </Table.Body>
     </Table>

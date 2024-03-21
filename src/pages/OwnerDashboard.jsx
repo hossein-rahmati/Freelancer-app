@@ -1,9 +1,10 @@
-import React from 'react'
-
+import DashboardLayout from "../features/owner/DashboardLayout.jsx";
 function OwnerDashboard() {
   return (
-    <div>OwnerDashboard</div>
-  )
+    <div>
+      <DashboardLayout />
+    </div>
+  );
 }
 
-export default OwnerDashboard
+export default OwnerDashboard;

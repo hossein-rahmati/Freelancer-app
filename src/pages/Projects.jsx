@@ -10,7 +10,7 @@ function Projects() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h2 className="font-bold text-2xl">پروژه های شما</h2>
+        <h2 className="font-bold text-2xl text-secondary-700">پروژه های شما</h2>
         <>
           <button
             onClick={() => setIsNewProjectOpen(true)}

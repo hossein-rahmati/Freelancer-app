@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import Stat from "./Stat.jsx";
+import Stat from "../../ui/Stat.jsx";
 import {
   HiCollection,
   HiCurrencyDollar,
@@ -18,7 +18,7 @@ function Stats({ projects }) {
     <div className="grid grid-cols-3 gap-8">
       <Stat
         color="primary"
-        title="پروژه های"
+        title="پروژه ها"
         value={numOfProjects}
         icon={<HiOutlineViewGrid className="w-20 h-20" />}
       />

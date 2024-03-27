@@ -61,7 +61,7 @@ const CreateProjectForm = ({ onClose, projectToEdit = {} }) => {
             onClose();
             reset();
           },
-        }
+        },
       );
     } else {
       createProject(newProject, {
@@ -84,7 +84,7 @@ const CreateProjectForm = ({ onClose, projectToEdit = {} }) => {
           required: "عنوان ضروری است",
           minLength: {
             value: 10,
-            message: "طول آرایه باید حداقل 10 کاراکتر باشد",
+            message: "حداقل 10 کاراکتر وارد کنید",
           },
         }}
         errors={errors}
@@ -98,7 +98,7 @@ const CreateProjectForm = ({ onClose, projectToEdit = {} }) => {
           required: "توضیحات ضروری است",
           minLength: {
             value: 10,
-            message: "طول آرایه باید حداقل 10 کاراکتر باشد",
+            message: "حداقل 10 کاراکتر وارد کنید",
           },
         }}
         errors={errors}

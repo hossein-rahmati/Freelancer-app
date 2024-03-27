@@ -10,6 +10,12 @@ import Projects from "./pages/Projects";
 import Project from "./pages/Project";
 import { DarkModeProvider } from "./context/DarkModeContext.jsx";
 import OwnerLayout from "./features/owner/OwnerLayout.jsx";
+import FreelancerDashboard from "./pages/FreelancerDashboard.jsx";
+import Proposals from "./pages/Proposals.jsx";
+import SubmittedProjects from "./pages/SubmittedProjects.jsx";
+import FreelancerLayout from "./features/freelancer/FreelancerLayout.jsx";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import ProtectedRoute from "./ui/ProtectedRoute.jsx";
 
 function App() {
   const queryClient = new QueryClient();
@@ -17,15 +23,36 @@ function App() {
   return (
     <DarkModeProvider>
       <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen={false} />
         <Toaster />
         <Routes>
           <Route path="/auth" element={<Auth />} />
           <Route path="/complete-profile" element={<CompleteProfile />} />
-          <Route path="/owner" element={<OwnerLayout />}>
+          <Route
+            path="/owner"
+            element={
+              <ProtectedRoute>
+                <OwnerLayout />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<OwnerDashboard />} />
             <Route path="projects" element={<Projects />} />
             <Route path="projects/:id" element={<Project />} />
+          </Route>
+          <Route
+            path="/freelancer"
+            element={
+              <ProtectedRoute>
+                <FreelancerLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<Navigate to="dashboard" replace />} />
+            <Route path="dashboard" element={<FreelancerDashboard />} />
+            <Route path="proposals" element={<Proposals />} />
+            <Route path="projects" element={<SubmittedProjects />} />
           </Route>
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />

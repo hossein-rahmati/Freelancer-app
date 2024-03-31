@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 
 function AuthContainer() {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const {
     isPending: isSendingOTP,
     data: OTPresponse,
@@ -33,10 +33,9 @@ function AuthContainer() {
       case 1:
         return (
           <SendOTPform
-            setStep={setStep}
             onSubmit={handleSubmit(handleSentOTP)}
-            register={register}
             isSendingOTP={isSendingOTP}
+            register={register}
           />
         );
       case 2:

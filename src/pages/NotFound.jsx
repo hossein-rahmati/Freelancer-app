@@ -1,5 +1,4 @@
 import { HiArrowRight } from "react-icons/hi";
-import { useNavigate } from "react-router-dom";
 import useMoveBack from "../hooks/useMoveBack";
 
 function NotFound() {
@@ -8,7 +7,7 @@ function NotFound() {
     <div className="container xl:max-w-screen-xl">
       <div className="sm:max-w-sm flex justify-center pt-10">
         <div>
-          <h1 className="text-xl font-bold text-secondary-700 mb-8">
+          <h1 className="text-xl font-bold text-secondary-300 mb-8">
             صفحه ای که دنبالش بودید پیدا نشد
           </h1>
           <button onClick={handleBack} className="flex items-center gap-x-2">

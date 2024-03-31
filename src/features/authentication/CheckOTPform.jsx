@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useMutation } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -21,8 +22,17 @@ function CheckOTPform({ phoneNumber, onBack, onResendOTP, OTPresponse }) {
   const handleCheckOTP = async (e) => {
     e.preventDefault();
     try {
-      const { message, user } = await mutateAsync({ phoneNumber, otp });
+      const { user, message } = await mutateAsync({ phoneNumber, otp });
       toast.success(message);
+      if (!user.isActive) return navigate("/complete-profile");
+      if (Number(user.status) !== 2) {
+        navigate("/");
+        toast("پروفایل شما در انتظار تایید است", { id: 1 });
+        return;
+      }
+      if (user.role === "OWNER") return navigate("/owner");
+      if (user.role === "FREELANCER") return navigate("/freelancer");
+      if (user.role === "ADMIN") return navigate("/admin");
     } catch (error) {
       toast.error(error?.response?.data?.message, { id: 1 });
     }
@@ -58,7 +68,7 @@ function CheckOTPform({ phoneNumber, onBack, onResendOTP, OTPresponse }) {
             <button onClick={() => onResendOTP}>ارسال مجدد کد تایید</button>
           )}
         </div>
-        <p className="font-bold text-secondary-800">کد تایید را وارد کنید</p>
+        <p className="font-bold text-secondary-300">کد تایید را وارد کنید</p>
         <OTPInput
           value={otp}
           onChange={setOtp}

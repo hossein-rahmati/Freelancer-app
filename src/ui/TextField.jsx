@@ -5,7 +5,7 @@ function TextField({
   register,
   type = "text",
   required,
-  validationSchema,
+  validationSchema = {},
   errors,
 }) {
   return (

@@ -1,5 +1,4 @@
 import AuthContainer from "../features/authentication/AuthContainer";
-import Loading from "../ui/Loading";
 
 function Auth() {
   return (

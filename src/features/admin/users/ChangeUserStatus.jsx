@@ -1,9 +1,8 @@
-import RHKSelect from "../../ui/RHKSelect.jsx";
 import { useForm } from "react-hook-form";
-import useChangeProposalStatus from "./useChangeProposalStatus.js";
+import useChangeUserStatus from "./useChangeUserStatus";
 import { useQueryClient } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
-import Loading from "../../ui/Loading.jsx";
+import Loading from "../../../ui/Loading";
+import RHKSelect from "../../../ui/RHKSelect";
 
 const options = [
   {
@@ -21,21 +20,20 @@ const options = [
 ];
 
 // eslint-disable-next-line react/prop-types
-function ChangeProposalStatus({ proposalId, onClose }) {
-  const { id: projectId } = useParams();
+function ChangeUserStatus({ userID, onClose }) {
   const { register, handleSubmit } = useForm();
-  const { isUpdating, changeProposalStatus } = useChangeProposalStatus();
+  const { isUpdating, changeUserStatus } = useChangeUserStatus();
   const queryClient = useQueryClient();
 
   const onSubmit = (data) => {
-    changeProposalStatus(
-      { proposalId, projectId, ...data },
+    changeUserStatus(
+      { userID, data },
       {
         onSuccess: () => {
           onClose();
-          queryClient.invalidateQueries({ queryKey: ["project", projectId] });
+          queryClient.invalidateQueries({ queryKey: ["users"] });
         },
-      },
+      }
     );
   };
 
@@ -63,4 +61,4 @@ function ChangeProposalStatus({ proposalId, onClose }) {
   );
 }
 
-export default ChangeProposalStatus;
+export default ChangeUserStatus;

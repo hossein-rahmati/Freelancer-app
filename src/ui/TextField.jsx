@@ -7,6 +7,7 @@ function TextField({
   required,
   validationSchema = {},
   errors,
+  placeholder,
 }) {
   return (
     <div>
@@ -19,6 +20,7 @@ function TextField({
         className="textField__input"
         autoComplete="off"
         type={type}
+        placeholder={placeholder}
       />
       {errors && errors[name] && (
         <span className="text-error block text-sm mt-2">

@@ -10,6 +10,7 @@ function SendOTPform({ onSubmit, isSendingOTP, register }) {
           name="phoneNumber"
           label="شماره موبایل"
           register={register}
+          placeholder="09xxxxxxxxx"
         />
         <div>
           {isSendingOTP ? (

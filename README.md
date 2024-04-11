@@ -1,4 +1,4 @@
-# Freelance Web Application (web wizardy)
+# Freelance Web Application (web wizardry)
 
 This is a freelance web application built with React.js and Tailwind CSS.
 
